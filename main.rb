@@ -21,7 +21,7 @@ class FileWithPasswords
   def replace_fake_passwords!
     if @file_as_string
       @passwords_pairs.each do |password_pair|
-        replace_fake_password(password_pair['fake_password'], password_pair['real_password'])
+        replace_fake_password(password_pair['fake_data'], password_pair['real_data'])
       end
 
       write_file
@@ -52,15 +52,15 @@ private
   def print_empty_warning
   end
 
-  def replace_fake_password(fake_password, real_password)
-    raise "Empty fake password in file #{@path}" if fake_password.nil? || fake_password.empty?
-    raise "Empty real password in file #{@path}" if real_password.nil? || real_password.empty?
+  def replace_fake_password(fake_data, real_data)
+    raise "Empty fake password in file #{@path}" if fake_data.nil? || fake_data.empty?
+    raise "Empty real password in file #{@path}" if real_data.nil? || real_data.empty?
 
-    if @file_as_string.gsub!(fake_password, real_password)
+    if @file_as_string.gsub!(fake_data, real_data)
       @replaced_passwords_count += 1
-      $logger.debug("Found fake password '#{fake_password}'.")
+      $logger.debug("Found fake string '#{fake_data}'.")
     else
-      $logger.warn("Can't find fake password '#{fake_password}' in file #{@path}. Already raplaced?")
+      $logger.warn("Can't find fake string '#{fake_data}' in file #{@path}. Already raplaced?")
     end
   end
 
