@@ -1,0 +1,7 @@
+
+xmpp:password=fake_password_1
+
+influxdb:password=fake_password_2
+
+var influxdb_username = "blah-blah-blah";
+var influxdb_password = "fake_password_3"
