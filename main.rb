@@ -1,7 +1,8 @@
+#!/usr/bin/ruby
+
 require 'yaml'
 require 'erb'
 require 'logger'
-require 'pry'
 
 
 PASSWORDS_FILE_NAME = '.passwords.yml.erb'
@@ -31,7 +32,6 @@ class FileWithPasswords
 private
 
   def read_file
-    #binding.pry
     if File.file?(@path)
       @file_as_string = File.read(@path)
       $logger.debug("#{@path} file loaded.")
@@ -73,7 +73,6 @@ end
 
 
 begin
-  #binding.pry
   load_files_and_passwords_hash.each do |hash|
     file = FileWithPasswords.new(path: hash['path'], passwords_pairs: hash['passwords'])
     file.replace_fake_passwords!
