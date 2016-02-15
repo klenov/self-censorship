@@ -5,7 +5,7 @@ It's always a good idea not to check sensitive data, such as a password or SSH k
 a way to keep sensitive data in separate files that could be ignored by Git.
 
 ## Usage
-The configuration file contains some file paths and a pairs of fake_data/real_data keys. Every occurrence of fake_data key will be replaced with real_data key.
+The configuration file contains file paths and a pairs of fake_data/real_data keys. Every occurrence of fake_data key will be replaced with real_data key.
 ```ruby
 -
   path: ./example_files/test.txt
